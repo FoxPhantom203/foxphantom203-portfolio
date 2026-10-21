@@ -1,0 +1,85 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const flavors = [
+  { name: 'Astro', status: 'main', description: 'The primary framework for this portfolio' },
+  { name: 'Next.js', status: 'coming', description: 'React framework for server-rendered applications' },
+  { name: 'Nuxt.js', status: 'coming', description: 'Vue framework for server-rendered applications' },
+  { name: 'SvelteKit', status: 'coming', description: 'Svelte framework for modern web applications' },
+  { name: 'Gatsby', status: 'coming', description: 'React framework for static site generation' },
+];
+
+const portfolioUrl = 'https://foxphantom203.github.io';
+---
+
+<Layout title="Portfolio - Framework Flavors">
+  <main class="min-h-screen p-8 max-w-4xl mx-auto">
+    <section class="text-center mb-12">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 text-transparent bg-clip-text">
+        Framework Flavors
+      </h1>
+      <p class="text-xl text-gray-300">
+        This portfolio supports multiple framework flavors. Here's what's available:
+      </p>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-6 text-center">Available Flavors</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {flavors.map((flavor) => (
+          <div 
+            class:list={[
+              "p-6 rounded-lg border-2 transition-all duration-300",
+              flavor.status === 'main' 
+                ? "border-green-500 bg-green-900/20" 
+                : "border-gray-600 bg-gray-800/50"
+            ]}
+          >
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-xl font-bold">
+                {flavor.name}
+              </h3>
+              {flavor.status === 'main' ? (
+                <span class="px-3 py-1 bg-green-500 text-white text-sm font-medium rounded-full">
+                  Main
+                </span>
+              ) : (
+                <span class="px-3 py-1 bg-yellow-500 text-white text-sm font-medium rounded-full">
+                  Coming Soon
+                </span>
+              )}
+            </div>
+            <p class="text-gray-400 text-sm mb-4">{flavor.description}</p>
+            
+            {flavor.status === 'main' && (
+              <p class="text-green-400 text-sm italic">Currently active</p>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="text-center">
+      <h2 class="text-2xl font-semibold mb-6">Visit My Portfolio</h2>
+      <p class="text-gray-300 mb-6 max-w-2xl mx-auto">
+        Check out my main portfolio website built with various technologies and frameworks.
+      </p>
+      
+      <a 
+        href={portfolioUrl}
+        class="inline-block px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-600 
+               text-white font-medium rounded-lg hover:from-purple-700 hover:to-pink-700
+               transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Visit foxphantom203.github.io
+      </a>
+    </section>
+
+    <footer class="mt-16 pt-8 border-t border-gray-700 text-center text-gray-500">
+      <p>Built with Astro & ❤️</p>
+    </footer>
+  </main>
+</Layout>
