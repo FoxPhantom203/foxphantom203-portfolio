@@ -14,8 +14,32 @@ const { title = 'FoxPhantom203 - Portfolio' } = Astro.props;
   <meta name="description" content="FoxPhantom203's Portfolio">
   <title>{title}</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <style>
+    body {
+      background-color: #111827;
+      color: #ffffff;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    .gradient-text {
+      background: linear-gradient(90deg, #8B5CF6 0%, #EC4899 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .gradient-bg {
+      background: linear-gradient(90deg, #8B5CF6 0%, #EC4899 100%);
+    }
+    .card-main {
+      border: 2px solid #10B981;
+      background-color: rgba(16, 185, 129, 0.1);
+    }
+    .card-coming {
+      border: 2px solid #6B7280;
+      background-color: rgba(107, 114, 128, 0.1);
+    }
+  </style>
 </head>
-<body class="bg-gray-900 text-white font-sans">
+<body>
   <slot />
 </body>
 </html>
